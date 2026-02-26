@@ -69,7 +69,7 @@ export default function Home() {
       )}
       {isNew && <Newlog setIsNew={setIsNew} />}
 
-      <div className="grid grid-cols-1  lg:grid-cols-3 w-full max-w-300 mt-8 gap-4 lg:gap-10 px-5 lg:px-0 h-fit">
+      <div className="grid grid-cols-1  lg:grid-cols-3 w-full max-w-250 mt-8 gap-4 lg:gap-10 px-5 lg:px-0 h-fit">
         {todayMood && (
           <>
             <div className="border-20 h-70 relative overflow-hidden flex flex-col lg:col-span-2 col-span-1 rounded-[30px] gap-2 p-3 pb-0 px-4 bg-light-peach shadow-sky shadow-[-10px_10px_0px] border-white w-full">
@@ -125,10 +125,10 @@ export default function Home() {
             </div>
           </>
         )}
-        <div className="rounded-2xl bg-light-peach  flex flex-col items-end p-5 h-100 col-span-full">
+        <div className="rounded-2xl bg-light-peach flex flex-col items-end p-5 h-100 col-span-full">
           <h1 className="text-4xl self-start font-medium">Mood Trends</h1>
           {moods.length !== 0 ? (
-            <div className=" flex-1 relative calender w-full">
+            <div className="flex-1 relative calender w-full">
               <div className="h-10/12 w-full z-10 absolute  top-0 left-0 *:border-b *:border-gray-200 grid grid-cols-1">
                 <div></div>
                 <div></div>

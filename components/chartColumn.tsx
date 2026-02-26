@@ -54,11 +54,11 @@ const ChartColumn = ({
         onMouseOver={() => setHovered(true)}
         onMouseOut={() => setHovered(false)}
         className={`flex group relative items-center border-2 column flex-col p-1 transition-all duration-500 ease-out hover:scale-105 hover:z-50 cursor-pointer
-        ${found.mood.toLowerCase().trim() === "very happy" && "bg-yellow-400"} 
-        ${found.mood.toLowerCase().trim() === "happy" && "bg-green-400"} 
-        ${found.mood.toLowerCase().trim() === "neutral" && "bg-blue-300"} 
-        ${found.mood.toLowerCase().trim() === "sad" && "bg-purple-300"} 
-        ${found.mood.toLowerCase().trim() === "very sad" && "bg-red-400"} 
+        ${found.mood.toLowerCase().trim() === "very happy" && "min-h-14 bg-yellow-400"} 
+        ${found.mood.toLowerCase().trim() === "happy" && "min-h-14 bg-green-400"} 
+        ${found.mood.toLowerCase().trim() === "neutral" && "min-h-14 bg-blue-300"} 
+        ${found.mood.toLowerCase().trim() === "sad" && "min-h-14 bg-purple-300"} 
+        ${found.mood.toLowerCase().trim() === "very sad" && "min-h-14 bg-red-400"} 
         w-full rounded-full border-white/30`}
       >
         <div
@@ -74,7 +74,7 @@ const ChartColumn = ({
               {found.mood}
             </p>
           </div>
-          <div className="h-px bg-gray-100 w-full" />
+          <div className=" bg-gray-100 w-full" />
           <div>
             <p className="text-[10px] uppercase tracking-wider text-text-secondary font-bold">
               Reflection
@@ -85,7 +85,7 @@ const ChartColumn = ({
           </div>
           {found.tags.length > 0 && (
             <>
-              <div className="h-px bg-gray-100 w-full" />
+              <div className="bg-gray-100 w-full" />
               <div className="flex flex-wrap gap-1">
                 {found.tags.map((tag) => (
                   <span
