@@ -26,7 +26,10 @@ export function convertDate(dateString: string, format?: string | undefined) {
 
 export default function Home() {
   const { data: session } = useSession();
-  const { currentMood, moods, logged } = useContext(appContext);
+  const { currentMood, moods, logged, loading } =
+    useContext(appContext);
+
+    console.log(loading)
   const [isNew, setIsNew] = useState(false);
   const [quote, setQuote] = useState("");
 

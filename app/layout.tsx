@@ -4,6 +4,8 @@ import { Sniglet, Fredoka } from "next/font/google";
 import { Provider } from "@/contexts/appcontext";
 import { SessionProvider } from "next-auth/react";
 import { Analytics } from "@vercel/analytics/next"
+import Loading from "@/components/loading";
+
 
 
 const sniglet = Sniglet({
@@ -36,6 +38,7 @@ export default function RootLayout({
       <Analytics/>
       <body>
         <SessionProvider>
+        <Loading/>
           <Provider>{children}</Provider>
         </SessionProvider>
       </body>

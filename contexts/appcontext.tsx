@@ -55,7 +55,7 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
   const [tags, setTags] = useState<string[]>([]);
   const [logError, setLogError] = useState<string | null>(null);
   const [text, setText] = useState<string>("");
-  const [loading, setLoading] = useState(true);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   async function refreshMoods() {
     if (!userId) return;
@@ -76,10 +76,10 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     async function fetchMoods() {
       if (!userId) {
-        setLoading(false);
+        setDataLoaded(true);
         return;
       }
-      setLoading(true);
+      setDataLoaded(false);
       getMoodEntries(userId)
         .then((result) => {
           if (result.success && result.data) {
@@ -94,7 +94,7 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
           setLogError("An unexpected error occurred");
         })
         .finally(() => {
-          setLoading(false);
+          setDataLoaded(true);
         });
     }
     fetchMoods();
@@ -104,6 +104,8 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
     const today = new Date().toISOString().split("T")[0];
     return moods.some((m) => m.date.split("T")[0] == today);
   }, [moods]);
+
+  const loading = !dataLoaded;
 
   return (
     <appContext.Provider
