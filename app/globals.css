@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sniglet: "Nunito Sans", sans-serif;
+  --font-fredoka: "Fredoka", sans-serif;
+
+  --color-header: #0284c7;
+  --color-body: #025576;
+  --color-sky: #d5f3ff;
+  --color-sun-yellow: #ffd93d;
+  --color-soft-green: #8ee3a6;
+  --color-light-peach: #fefbec;
+  --color-peach: #ff9a76;
+  --color-lavender: #cba1ff;
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #475569;
+  --color-card-bg: #ffffff;
+  --color-bg-gray: #f3f3f3;
+
+  --color-very-happy: #22c55e;
+  --color-happy: #eab308;
+  --color-neutral: #94a3b8;
+  --color-sad: #3b82f6;
+  --color-very-sad: #ef4444;
+}
+
+body {
+  width: 100%;
+  height: fit-content;
+  min-height: 100dvh;
+  background-image: url("../public/bg-desktop.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100dvh;
+  color: var(--color-text-primary);
+}
+button {
+  @apply active:scale-97 duration-300 cursor-pointer;
+}
+
+@media (max-width: 1000px) {
+  body {
+    background-image: url("../public/bg-mobile.png");
+  }
+}
+
+.calender::-webkit-scrollbar {
+  display: none;
+}
+
+.column {
+  animation-name: column ;
+  animation-duration: 1s;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-delay: 500ms;
+}
+
+@keyframes column {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 100%
+  }
+}
