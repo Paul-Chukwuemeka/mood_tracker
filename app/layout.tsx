@@ -3,6 +3,8 @@ import "./globals.css";
 import { Sniglet, Fredoka } from "next/font/google";
 import { Provider } from "@/contexts/appcontext";
 import { SessionProvider } from "next-auth/react";
+import { Analytics } from "@vercel/analytics/next"
+
 
 const sniglet = Sniglet({
   subsets: ["latin"],
@@ -31,6 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${sniglet.variable} ${fredoka.variable}`}>
+      <Analytics/>
       <body>
         <SessionProvider>
           <Provider>{children}</Provider>
