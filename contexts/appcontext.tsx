@@ -25,7 +25,7 @@ type AppContextType = {
   logged: boolean;
   text: string;
   userId: string;
-  loading: boolean;
+  dataLoaded: boolean;
   refreshMoods: () => Promise<void>;
 };
 
@@ -42,8 +42,8 @@ export const appContext = createContext<AppContextType>({
   setText: () => {},
   logged: false,
   userId: "",
-  loading: true,
   refreshMoods: async () => {},
+  dataLoaded: false,
 });
 
 export const Provider = ({ children }: { children: React.ReactNode }) => {
@@ -105,8 +105,6 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
     return moods.some((m) => m.date.split("T")[0] == today);
   }, [moods]);
 
-  const loading = !dataLoaded;
-
   return (
     <appContext.Provider
       value={{
@@ -122,8 +120,8 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
         logged,
         setLogError,
         userId,
-        loading,
         refreshMoods,
+        dataLoaded,
       }}
     >
       {children}
