@@ -76,7 +76,7 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     async function fetchMoods() {
       if (!userId) {
-        setDataLoaded(true);
+        setDataLoaded(true)
         return;
       }
       setDataLoaded(false);

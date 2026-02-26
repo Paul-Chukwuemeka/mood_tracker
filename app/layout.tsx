@@ -38,8 +38,10 @@ export default function RootLayout({
       <Analytics/>
       <body>
         <SessionProvider>
-        <Loading/>
-          <Provider>{children}</Provider>
+          <Provider>
+            <Loading />
+            {children}
+          </Provider>
         </SessionProvider>
       </body>
     </html>
